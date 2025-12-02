@@ -50,7 +50,7 @@
       .then(response => {
 
         if (!response.ok) {
-          throw new Error("Network response was not OK");
+          throw new Error("Network response DID NOT work");
         }
 
         return response.json();
@@ -80,7 +80,7 @@
         hideLoader();
 
         const errorItem = document.createElement("li");
-        errorItem.textContent = "Failed to load. Try again later.";
+        errorItem.textContent = "Failed to load. Try again later because it might be a problem on our end.";
         materialList.appendChild(errorItem);
 
         console.log(error);
