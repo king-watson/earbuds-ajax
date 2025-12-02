@@ -1,0 +1,94 @@
+/* Footer Styles */
+.footer-container {
+    padding-top: 40px;
+}
+
+.site-footer {
+    background-color: black;
+    color: white;
+    padding: 50px 20px 20px 20px;
+}
+
+.site-footer a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.site-footer a:hover {
+    color: white;
+}
+
+/* Grid container inside footer */
+.site-footer .footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.site-footer h3, .site-footer h4 {
+    color: white;
+    margin-bottom: 15px;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+
+}
+
+
+/* Footer paragraphs */
+.site-footer p {
+    font-family: 'Figtree', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Footer links list */
+.site-footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.site-footer ul li {
+    margin-bottom: 10px;
+}
+
+/* Social icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Footer bottom */
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: white;
+}
+
+/* Mobile: stacked columns */
+@media screen and (max-width: 767px) {
+    .site-footer .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+/* Tablet: 3 columns */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    .site-footer .footer-container {
+        grid-template-columns: repeat(3, 1fr);
+        text-align: left;
+    }
+}

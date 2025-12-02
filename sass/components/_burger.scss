@@ -1,0 +1,145 @@
+/* Header container */
+.full-width-header {
+  background-color: black; 
+  color: #fff;
+}
+
+/* Grid container */
+.grid-con {
+  display: grid;
+}
+
+/* Logo */
+#header-logo img {
+  height: 80px; 
+  width: auto;
+  margin-right: 0;
+  padding-left: 0;
+}
+
+/* Hamburger */
+
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  padding: 20px;
+  background: black;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#hamburger, #close {
+  font-size: 32px;
+  background: none;
+  border: none;
+  color: rgb(255, 252, 90);
+  cursor: pointer;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay.open {
+  display: flex;
+}
+
+#close {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+#menu ul {
+  list-style-type: none;
+  text-align: center;
+}
+
+#menu li {
+  margin: 20px 0;
+}
+
+#menu a {
+  color: white;
+  font-size: 32px;
+  text-decoration: none;
+}
+
+#menu a:hover {
+  color: yellow;
+}
+
+@media screen and (min-width: 768px) {
+
+  .no-scroll {
+    overflow: auto;
+    height: auto;
+  }
+
+ 
+  #hamburger, #close {
+    display: none;
+  }
+
+  .overlay {
+    display: block;
+    position: static;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    color: white;
+    overflow: hidden;
+  }
+
+  #menu ul {
+    display: flex;
+    margin-top: 45px;
+  }
+
+  #menu ul li {
+    display: inline;
+    margin: 0 20px 0 0;
+  }
+
+  #menu ul li a {
+  color: yellow;
+  text-decoration: none;
+  transition: color 0.3s ease; 
+  font-family: 'Special Gothic Expanded One', sans-serif;
+  font-size: 20px;
+}
+
+#menu ul li a:hover {
+  color: white;
+}
+
+
+  #menu a:hover {
+  color: white;
+}
+
+#header-logo img {
+  height: 100px; 
+  width: auto;
+  margin-right: 0;
+  padding-left: 0;
+}
+
+}

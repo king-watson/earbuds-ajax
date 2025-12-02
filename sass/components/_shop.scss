@@ -1,0 +1,114 @@
+.hidden {
+    display: none;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile: 1 per row */
+  gap: 20px;
+  justify-items: center; /* centers the grid items horizontally */
+}
+
+.product-box {
+  background-color: white;
+  border: 2px solid yellow;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 350px; /* limits the box width */
+  text-align: center; /* centers text & images inside the box */
+}
+
+.product-box h3 {
+    color: black;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+}
+
+.product-box p {
+    color: red;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+}
+
+.product-box img {
+  max-width: 80%; /* makes image responsive */
+  height: auto;
+  display: block; /* ensures proper centering */
+  margin: 0 auto; /* centers the image horizontally */
+}
+
+
+.shop-now {
+    background: linear-gradient(
+    to bottom,
+    #a0a0a0 0%,   
+    black 30%,  
+    black 100%  
+  );
+}
+
+.shop-now h2 {
+    color: yellow;
+    font-size: 35px;
+    padding-left: 15px;
+    padding-top: 50px;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+}
+
+.shop-now p {
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 16px;
+    font-family: 'Figtree', sans-serif;
+}
+
+.preorder-section {
+  display: flex;                 
+  justify-content: center;      
+  align-items: center;         
+  height: 75px;                
+background-color: black;
+}
+
+.btn-preorder a {
+  padding: 10px 50px;            
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  background-color: black;
+  border: 2px solid yellow;
+  border-radius: 6px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+.preorder-section a {
+ font-family: 'Special Gothic Expanded One', sans-serif;
+}
+
+.btn-preorder a:hover {
+  background-color: black;
+  color: yellow;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .products {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); /* 3 per row */
+    gap: 20px;
+    justify-items: center;
+  }
+}
+
+  .product-box {
+  background-color: white;
+  border: 2px solid yellow;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 350px; 
+  text-align: center; 
+}
+

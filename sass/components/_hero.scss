@@ -1,0 +1,269 @@
+/* Default: mobile */
+body {
+    background-color: #000;
+}
+
+.hero {
+    display: grid; /* show mobile by default */
+     background-color: black;
+    padding-bottom: 50px;
+}
+
+#hero-img {
+  width: 80%;      /* takes up container width */ /* prevents it from being huge on desktop */
+  height: auto;     /* keeps aspect ratio */
+  margin-top: 30px;
+  margin-left: 40px;
+}
+
+#text-col h1{
+ color: yellow;
+ padding-left: 20px;
+ font-family: 'Special Gothic Expanded One', sans-serif;
+ font-size: 29px;
+}
+
+
+
+#text-col p{
+ color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: 'Figtree', sans-serif;
+}
+
+#m-text-col h1{
+ color: yellow;
+ padding-left: 20px;
+ font-family: 'Special Gothic Expanded One', sans-serif;
+ font-size: 29px;
+}
+
+#m-text-col p{
+ color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: 'Figtree', sans-serif;
+}
+
+.btn {
+  display: inline-block;        
+  padding: 12px 24px;   
+  background-color: black;  
+  color: white;                  
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;        
+  border: 2px solid yellow;  
+  border-radius: 8px;          
+  cursor: pointer;             
+  transition: all 0.3s ease;   
+  margin-left: 20px;
+}
+
+/* Hover effect */
+.btn:hover {
+  background-color: #000;      
+  color: yellow;
+  transform: scale(1.05);   
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: black;
+  padding-bottom: 30px;
+}
+
+#hero-video {
+  width: 95%;        
+  height: auto;
+  display: block;    
+}
+
+#explode-view {
+  max-width: 100%;
+  width: 100vw; 
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Default: Mobile */
+.circle {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%; 
+  border: 5px solid yellow; 
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  font-size: 75px;
+  font-weight: bold;
+  color: yellow;
+  background-color: black; 
+  margin: 30px auto; /* center horizontally */
+  animation: vibrate 3s linear infinite;
+}
+
+.circle-background {
+    background-color: black;
+}
+
+.about-text {
+    background: linear-gradient(
+        to bottom,
+        black 0%,   
+        black 80%,  
+        #a0a0a0 100%
+    );
+    padding: 30px 20px; /* add some padding */
+    text-align: center;
+}
+
+.about-text h2 {
+    color: yellow;
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    color: white;
+    font-family: 'Figtree', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 auto 75px auto; /* center and add bottom spacing */
+    max-width: 600px; /* prevents text from being too wide on mobile */
+}
+
+@keyframes vibrate {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-2px, -2px); }
+  80% { transform: translate(2px, 2px); }
+  100% { transform: translate(0, 0); }
+}
+
+@media (min-width: 768px) {
+
+#hero-img {
+  width: 100%;      /* takes up container width */ /* prevents it from being huge on desktop */
+  height: auto;     /* keeps aspect ratio */
+  margin-top: 30px;
+  margin-left: 40px;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+#text-col h1{
+ color: yellow;
+ padding-left: 20px;
+ font-family: 'Special Gothic Expanded One', sans-serif;
+ font-size: 29px;
+}
+
+
+
+#text-col p{
+ color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: 'Figtree', sans-serif;
+}
+
+#text-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers horizontally */
+  justify-content: center; 
+  text-align: center;
+}
+
+
+
+
+  .circle {
+    width: 500px;
+    height: 500px;
+    font-size: 100px;
+  }
+
+  .about-text {
+        padding: 50px 40px;
+        text-align: center; /* optional: left-align on tablet */
+    }
+
+    .about-text h2 {
+        font-size: 28px;
+    }
+
+    .about-text p {
+        font-size: 18px;
+        max-width: 800px;
+    }
+  
+    .video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: black;
+  padding-bottom: 30px;
+}
+
+#hero-video {
+  width: 95%;        
+  height: auto;
+  display: block;    
+}
+
+
+
+    .m-hero {
+    background-color: black;
+    padding-bottom: 50px;
+}
+
+
+
+
+  .carousel-container {
+    display: none;
+  }
+
+  .carousel-track {
+    display: none;
+  }
+
+  .shop-now-image {
+    display: none;
+  }
+
+  .prev-btn,
+  .next-btn {
+    display: none;
+  }
+
+ .circle {
+    width: 600px;
+    height: 600px;
+    font-size: 100px;
+  
+}
+
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+  .circle {
+    width: 700px;
+    height: 700px;
+    font-size: 150px;
+  }
+
+  
+}
