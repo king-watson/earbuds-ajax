@@ -1,4 +1,5 @@
 (() => {
+
   const hotspots = document.querySelectorAll(".Hotspot");
   const materialTemplate = document.querySelector("#material-template");
   const materialList = document.querySelector("#material-list");
@@ -12,84 +13,101 @@
     loader.classList.add("hidden");
   }
 
-  function fetchMaterials() {
+  function loadInfoBoxes() {
+
+    fetch("https://swiftpixel.com/earbud/api/infoboxes")
+      .then(response => response.json())
+      .then(infoBoxes => {
+        console.log(infoBoxes);
+
+        infoBoxes.forEach((infoBox, index) => {
+          let selected = document.querySelector(`#hotspot-${index + 1}`);
+
+          const titleElement = document.createElement('h2');
+          titleElement.textContent = infoBox.heading;
+
+          const textElement = document.createElement('p');
+          textElement.textContent = infoBox.description;
+
+          selected.appendChild(titleElement);
+          selected.appendChild(textElement);
+        });
+      })
+      .catch(error => {
+      
+        console.log(error);
+      });
+
+  }
+  loadInfoBoxes();
+
+
+  function loadMaterialInfo() {
+
     showLoader();
 
     fetch("https://swiftpixel.com/earbud/api/materials")
-      .then(handleFetchResponse)
-      .then(renderMaterials)
-      .catch(handleFetchError);
-  }
+      .then(response => {
 
-  function handleFetchResponse(response) {
-    if (!response.ok) {
-      throw new Error("Network response was not OK");
-    }
-    return response.json(); 
-  }
+        if (!response.ok) {
+          throw new Error("Network response was not OK");
+        }
 
-  function renderMaterials(materials) {
-    materialList.innerHTML = "";
+        return response.json();
+      })
+      .then(materials => {
 
-    materials.forEach(material => {
-      const clone = materialTemplate.content.cloneNode(true);
-      clone.querySelector(".material-heading").textContent = material.heading;
-      clone.querySelector(".material-description").textContent = material.description;
-      materialList.appendChild(clone);
-    });
+        materialList.innerHTML = ""; 
 
-    hideLoader();
-  }
+        materials.forEach(material => {
+        
+          const clone = materialTemplate.content.cloneNode(true);
+       
+          const materialHeading = clone.querySelector(".material-heading");
+          materialHeading.textContent = material.heading;
 
-  function handleFetchError(error) {
-    hideLoader();
+          const materialDescription = clone.querySelector(".material-description");
+          materialDescription.textContent = material.description;
 
-    const errorItem = document.createElement("li");
-    errorItem.textContent = "Failed to load. Try again later because it might be a problem on our end.";
-    materialList.appendChild(errorItem);
+       
+          materialList.appendChild(clone);
+        });
 
-    console.error("Fetch error:", error);
-  }
-
-  function loadHotspotInfo() {
-    fetch("https://swiftpixel.com/earbud/api/infoboxes")
-      .then(handleFetchResponse)
-      .then(renderHotspotInfo)
+      
+        hideLoader();
+      })
       .catch(error => {
-        console.error("Hotspot fetch error:", error);
-      });
-  }
+        hideLoader();
 
-  function renderHotspotInfo(infoBoxes) {
-    infoBoxes.forEach((infoBox, index) => {
-      const selected = document.querySelector(`#hotspot-${index + 1}`);
-      const titleElement = document.createElement("h2");
-      titleElement.textContent = infoBox.heading;
-      const textElement = document.createElement("p");
-      textElement.textContent = infoBox.description;
-      selected.appendChild(titleElement);
-      selected.appendChild(textElement);
-    });
+        const errorItem = document.createElement("li");
+        errorItem.textContent = "Failed to load. Try again later.";
+        materialList.appendChild(errorItem);
+
+        console.log(error);
+      });
+
   }
+  loadMaterialInfo();
+
 
   function showInfo() {
-    const selected = document.querySelector(`#${this.slot}`);
-    gsap.to(selected, { duration: 1, autoAlpha: 1 });
+    let selected = document.querySelector(`#${this.slot}`);
+    gsap.to(selected, 1, { autoAlpha: 1 });
   }
 
   function hideInfo() {
-    const selected = document.querySelector(`#${this.slot}`);
-    gsap.to(selected, { duration: 1, autoAlpha: 0 });
+    let selected = document.querySelector(`#${this.slot}`);
+    gsap.to(selected, 1, { autoAlpha: 0 });
   }
 
-  hotspots.forEach(hotspot => {
+
+  hotspots.forEach(function (hotspot) {
     hotspot.addEventListener("mouseenter", showInfo);
     hotspot.addEventListener("mouseleave", hideInfo);
   });
 
-  fetchMaterials();
-  loadHotspotInfo();
 })();
+
 
 (() => {
     const menu = document.querySelector('#menu');
